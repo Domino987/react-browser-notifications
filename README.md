@@ -1,4 +1,4 @@
-# react-browser-notifications
+# react-browser-notification
 React component for the [Javascript Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API). The Notifications API allows web pages to control the display of system notifications to the end user. These are outside the top-level browsing context viewport, so therefore can be displayed even when the user has switched tabs or moved to a different app. This component is supported in modern web browsers such as Chrome, Safari, Firefox, Opera, and Edge.
 
 
@@ -9,14 +9,14 @@ React component for the [Javascript Notifications API](https://developer.mozilla
 ## Installation
 Using [npm](https://www.npmjs.com/):
 ```
-npm install --save react-browser-notifications
+npm install --save react-browser-notification
 ```
 
 
 ## Usage
 ```javascript
 import React from 'react';
-import ReactNotifications from 'react-browser-notifications';
+import ReactNotifications from 'react-browser-notification';
 
 class Example extends React.Component {
   constructor() {
