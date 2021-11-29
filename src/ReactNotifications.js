@@ -1,9 +1,8 @@
-import React from 'react';
-import Push from 'push.js';
-const shortid = require('shortid');
+import React from "react";
+import Push from "push.js";
+const shortid = require("shortid");
 
 class ReactNotifications extends React.Component {
-
   constructor() {
     super();
     this.supported = this.supported.bind(this);
@@ -12,15 +11,15 @@ class ReactNotifications extends React.Component {
   }
 
   componentDidMount() {
-    this.props.onRef(this)
+    this.props.onRef(this);
   }
 
   componentWillUnmount() {
-    this.props.onRef(undefined)
+    this.props.onRef(undefined);
   }
 
   supported() {
-    if ('Notification' in window) return true;
+    if ("Notification" in window) return true;
     else return false;
   }
 
@@ -30,9 +29,11 @@ class ReactNotifications extends React.Component {
       icon: this.props.icon ? this.props.icon : null,
       tag: this.props.tag ? this.props.tag : shortid.generate(),
       timeout: this.props.timeout ? this.props.timeout : null,
-      requireInteraction: this.props.interaction ? this.props.interaction : false,
-      onClick: this.props.onClick ? this.props.onClick : null
-    })
+      requireInteraction: this.props.interaction
+        ? this.props.interaction
+        : false,
+      onClick: this.props.onClick ? this.props.onClick : null,
+    });
   }
 
   close(tag) {
@@ -40,10 +41,7 @@ class ReactNotifications extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-      </div>
-    )
+    return null;
   }
 }
 
