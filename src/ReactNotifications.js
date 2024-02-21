@@ -23,17 +23,20 @@ class ReactNotifications extends React.Component {
     else return false;
   }
 
-  show() {
-    Push.create(this.props.title, {
-      body: this.props.body ? this.props.body : null,
-      icon: this.props.icon ? this.props.icon : null,
-      tag: this.props.tag ? this.props.tag : shortid.generate(),
-      timeout: this.props.timeout ? this.props.timeout : null,
-      requireInteraction: this.props.interaction
-        ? this.props.interaction
-        : false,
-      onClick: this.props.onClick ? this.props.onClick : null,
-    });
+  async show() {
+    const allowed = await Notification.requestPermission();
+    if (allowed !== "denied") {
+      Push.create(this.props.title, {
+        body: this.props.body ? this.props.body : null,
+        icon: this.props.icon ? this.props.icon : null,
+        tag: this.props.tag ? this.props.tag : shortid.generate(),
+        timeout: this.props.timeout ? this.props.timeout : null,
+        requireInteraction: this.props.interaction
+          ? this.props.interaction
+          : false,
+        onClick: this.props.onClick ? this.props.onClick : null,
+      });
+    }
   }
 
   close(tag) {
